@@ -1,0 +1,554 @@
+#******************* Question - 01 : 2000 : Probability (%) of dying between age 30 and exact age 70 ********************
+
+
+df2000 = df[df.Period == 2000]
+print("\n\n--------------[ OUTPUT for 2000 ]----------------------\n\n")
+print(df2000[['Location','Period','Dim1','First Tooltip']])
+
+df2000_both = df2000[df2000.Dim1 == 'Both sexes']
+print("\n\n--------------[ OUTPUT for 2000 Both sexes ]----------------------\n\n")
+print(df2000_both[['Location','Period','Dim1','First Tooltip']])
+
+df2000_male = df2000[df2000.Dim1 == 'Male']
+print("\n\n--------------[ OUTPUT for 2000 Male ]----------------------\n\n")
+print(df2000_male[['Location','Period','Dim1','First Tooltip']])
+
+df2000_female = df2000[df2000.Dim1 == 'Female']
+print("\n\n--------------[ OUTPUT for 2000 Female ]----------------------\n\n")
+print(df2000_female[['Location','Period','Dim1','First Tooltip']])
+
+i = np.arange(len(df2000_both['Location']))
+print(i)
+
+i1 = np.arange(len(df2000_male['Location']))
+print(i1)
+
+i2 = np.arange(len(df2000_female['Location']))
+print(i2)
+
+#--------------- plot for 2000 ----------------------
+
+plt.title('Question - 01 : 2000 : Probability (%) of dying between age 30 and exact age 70')
+
+plt.xlabel("Country sl. no --- >")
+plt.ylabel("Probability(%) --- >")
+
+plt.plot(i,df2000_both['First Tooltip'],
+            marker=7,
+            markersize=10,
+            linestyle='dashed',
+            label="[1] For Both sexes")
+
+plt.plot(i1,df2000_male['First Tooltip'],
+            marker='*',
+            markersize=10,
+            linestyle='dashed',
+            label="[2] For male only")
+
+plt.plot(i2,df2000_female['First Tooltip'],
+            marker='+',
+            markersize=10,
+            linestyle='dashed',
+            label="[3] For Female only")
+
+plt.legend()
+plt.show()
+
+
+
+--------------[ OUTPUT for 2000 ]----------------------
+
+
+                                Location  Period        Dim1  First Tooltip
+12                           Afghanistan    2000  Both sexes           34.4
+13                           Afghanistan    2000        Male           36.6
+14                           Afghanistan    2000      Female           32.1
+27                               Albania    2000  Both sexes           19.4
+28                               Albania    2000        Male           23.1
+29                               Albania    2000      Female           14.9
+42                               Algeria    2000  Both sexes           21.1
+43                               Algeria    2000        Male           23.1
+44                               Algeria    2000      Female           19.1
+57                                Angola    2000  Both sexes           24.0
+58                                Angola    2000        Male           24.2
+59                                Angola    2000      Female           23.8
+72                   Antigua and Barbuda    2000  Both sexes           23.4
+73                   Antigua and Barbuda    2000        Male           26.8
+74                   Antigua and Barbuda    2000      Female           20.8
+87                             Argentina    2000  Both sexes           20.6
+88                             Argentina    2000        Male           26.9
+89                             Argentina    2000      Female           14.7
+102                              Armenia    2000  Both sexes           27.8
+103                              Armenia    2000        Male           35.4
+104                              Armenia    2000      Female           21.0
+117                            Australia    2000  Both sexes           13.1
+118                            Australia    2000        Male           16.1
+119                            Australia    2000      Female           10.0
+132                              Austria    2000  Both sexes           15.3
+133                              Austria    2000        Male           20.0
+134                              Austria    2000      Female           10.7
+147                           Azerbaijan    2000  Both sexes           29.3
+148                           Azerbaijan    2000        Male           36.1
+149                           Azerbaijan    2000      Female           22.9
+                                 ...     ...         ...            ...
+2607         United Republic of Tanzania    2000  Both sexes           21.2
+2608         United Republic of Tanzania    2000        Male           21.8
+2609         United Republic of Tanzania    2000      Female           20.6
+2622            United States of America    2000  Both sexes           18.0
+2623            United States of America    2000        Male           21.6
+2624            United States of America    2000      Female           14.6
+2637                             Uruguay    2000  Both sexes           20.6
+2638                             Uruguay    2000        Male           27.8
+2639                             Uruguay    2000      Female           14.1
+2652                          Uzbekistan    2000  Both sexes           29.3
+2653                          Uzbekistan    2000        Male           34.4
+2654                          Uzbekistan    2000      Female           24.3
+2667                             Vanuatu    2000  Both sexes           27.9
+2668                             Vanuatu    2000        Male           30.8
+2669                             Vanuatu    2000      Female           24.4
+2682  Venezuela (Bolivarian Republic of)    2000  Both sexes           21.6
+2683  Venezuela (Bolivarian Republic of)    2000        Male           24.9
+2684  Venezuela (Bolivarian Republic of)    2000      Female           18.3
+2697                            Viet Nam    2000  Both sexes           18.6
+2698                            Viet Nam    2000        Male           25.3
+2699                            Viet Nam    2000      Female           12.7
+2712                               Yemen    2000  Both sexes           33.1
+2713                               Yemen    2000        Male           35.7
+2714                               Yemen    2000      Female           30.5
+2727                              Zambia    2000  Both sexes           23.2
+2728                              Zambia    2000        Male           21.8
+2729                              Zambia    2000      Female           24.4
+2742                            Zimbabwe    2000  Both sexes           21.6
+2743                            Zimbabwe    2000        Male           21.6
+2744                            Zimbabwe    2000      Female           21.7
+
+[549 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2000 Both sexes ]----------------------
+
+
+                                               Location  Period        Dim1  \
+12                                          Afghanistan    2000  Both sexes   
+27                                              Albania    2000  Both sexes   
+42                                              Algeria    2000  Both sexes   
+57                                               Angola    2000  Both sexes   
+72                                  Antigua and Barbuda    2000  Both sexes   
+87                                            Argentina    2000  Both sexes   
+102                                             Armenia    2000  Both sexes   
+117                                           Australia    2000  Both sexes   
+132                                             Austria    2000  Both sexes   
+147                                          Azerbaijan    2000  Both sexes   
+162                                             Bahamas    2000  Both sexes   
+177                                             Bahrain    2000  Both sexes   
+192                                          Bangladesh    2000  Both sexes   
+207                                            Barbados    2000  Both sexes   
+222                                             Belarus    2000  Both sexes   
+237                                             Belgium    2000  Both sexes   
+252                                              Belize    2000  Both sexes   
+267                                               Benin    2000  Both sexes   
+282                                              Bhutan    2000  Both sexes   
+297                    Bolivia (Plurinational State of)    2000  Both sexes   
+312                              Bosnia and Herzegovina    2000  Both sexes   
+327                                            Botswana    2000  Both sexes   
+342                                              Brazil    2000  Both sexes   
+357                                   Brunei Darussalam    2000  Both sexes   
+372                                            Bulgaria    2000  Both sexes   
+387                                        Burkina Faso    2000  Both sexes   
+402                                             Burundi    2000  Both sexes   
+417                                          Cabo Verde    2000  Both sexes   
+432                                            Cambodia    2000  Both sexes   
+447                                            Cameroon    2000  Both sexes   
+                                                ...     ...         ...   
+2307                                          Sri Lanka    2000  Both sexes   
+2322                                 Sudan (until 2011)    2000  Both sexes   
+2337                                           Suriname    2000  Both sexes   
+2352                                             Sweden    2000  Both sexes   
+2367                                        Switzerland    2000  Both sexes   
+2382                               Syrian Arab Republic    2000  Both sexes   
+2397                                         Tajikistan    2000  Both sexes   
+2412                                           Thailand    2000  Both sexes   
+2427          The former Yugoslav Republic of Macedonia    2000  Both sexes   
+2442                                        Timor-Leste    2000  Both sexes   
+2457                                               Togo    2000  Both sexes   
+2472                                              Tonga    2000  Both sexes   
+2487                                Trinidad and Tobago    2000  Both sexes   
+2502                                            Tunisia    2000  Both sexes   
+2517                                             Turkey    2000  Both sexes   
+2532                                       Turkmenistan    2000  Both sexes   
+2547                                             Uganda    2000  Both sexes   
+2562                                            Ukraine    2000  Both sexes   
+2577                               United Arab Emirates    2000  Both sexes   
+2592  United Kingdom of Great Britain and Northern I...    2000  Both sexes   
+2607                        United Republic of Tanzania    2000  Both sexes   
+2622                           United States of America    2000  Both sexes   
+2637                                            Uruguay    2000  Both sexes   
+2652                                         Uzbekistan    2000  Both sexes   
+2667                                            Vanuatu    2000  Both sexes   
+2682                 Venezuela (Bolivarian Republic of)    2000  Both sexes   
+2697                                           Viet Nam    2000  Both sexes   
+2712                                              Yemen    2000  Both sexes   
+2727                                             Zambia    2000  Both sexes   
+2742                                           Zimbabwe    2000  Both sexes   
+
+      First Tooltip  
+12             34.4  
+27             19.4  
+42             21.1  
+57             24.0  
+72             23.4  
+87             20.6  
+102            27.8  
+117            13.1  
+132            15.3  
+147            29.3  
+162            20.1  
+177            23.5  
+192            21.4  
+207            21.0  
+222            34.0  
+237            15.2  
+252            26.2  
+267            20.0  
+282            30.8  
+297            23.0  
+312            24.4  
+327            23.1  
+342            24.4  
+357            20.5  
+372            28.5  
+387            22.6  
+402            23.5  
+417            20.9  
+432            25.5  
+447            24.5  
+            ...  
+2307           21.5  
+2322           29.8  
+2337           28.0  
+2352           13.2  
+2367           12.6  
+2382           22.6  
+2397           27.3  
+2412           19.2  
+2427           26.0  
+2442           26.8  
+2457           24.9  
+2472           26.1  
+2487           28.9  
+2502           19.3  
+2517           22.3  
+2532           34.0  
+2547           25.9  
+2562           34.3  
+2577           21.6  
+2592           16.4  
+2607           21.2  
+2622           18.0  
+2637           20.6  
+2652           29.3  
+2667           27.9  
+2682           21.6  
+2697           18.6  
+2712           33.1  
+2727           23.2  
+2742           21.6  
+
+[183 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2000 Male ]----------------------
+
+
+                                               Location  Period  Dim1  \
+13                                          Afghanistan    2000  Male   
+28                                              Albania    2000  Male   
+43                                              Algeria    2000  Male   
+58                                               Angola    2000  Male   
+73                                  Antigua and Barbuda    2000  Male   
+88                                            Argentina    2000  Male   
+103                                             Armenia    2000  Male   
+118                                           Australia    2000  Male   
+133                                             Austria    2000  Male   
+148                                          Azerbaijan    2000  Male   
+163                                             Bahamas    2000  Male   
+178                                             Bahrain    2000  Male   
+193                                          Bangladesh    2000  Male   
+208                                            Barbados    2000  Male   
+223                                             Belarus    2000  Male   
+238                                             Belgium    2000  Male   
+253                                              Belize    2000  Male   
+268                                               Benin    2000  Male   
+283                                              Bhutan    2000  Male   
+298                    Bolivia (Plurinational State of)    2000  Male   
+313                              Bosnia and Herzegovina    2000  Male   
+328                                            Botswana    2000  Male   
+343                                              Brazil    2000  Male   
+358                                   Brunei Darussalam    2000  Male   
+373                                            Bulgaria    2000  Male   
+388                                        Burkina Faso    2000  Male   
+403                                             Burundi    2000  Male   
+418                                          Cabo Verde    2000  Male   
+433                                            Cambodia    2000  Male   
+448                                            Cameroon    2000  Male   
+                                                ...     ...   ...   
+2308                                          Sri Lanka    2000  Male   
+2323                                 Sudan (until 2011)    2000  Male   
+2338                                           Suriname    2000  Male   
+2353                                             Sweden    2000  Male   
+2368                                        Switzerland    2000  Male   
+2383                               Syrian Arab Republic    2000  Male   
+2398                                         Tajikistan    2000  Male   
+2413                                           Thailand    2000  Male   
+2428          The former Yugoslav Republic of Macedonia    2000  Male   
+2443                                        Timor-Leste    2000  Male   
+2458                                               Togo    2000  Male   
+2473                                              Tonga    2000  Male   
+2488                                Trinidad and Tobago    2000  Male   
+2503                                            Tunisia    2000  Male   
+2518                                             Turkey    2000  Male   
+2533                                       Turkmenistan    2000  Male   
+2548                                             Uganda    2000  Male   
+2563                                            Ukraine    2000  Male   
+2578                               United Arab Emirates    2000  Male   
+2593  United Kingdom of Great Britain and Northern I...    2000  Male   
+2608                        United Republic of Tanzania    2000  Male   
+2623                           United States of America    2000  Male   
+2638                                            Uruguay    2000  Male   
+2653                                         Uzbekistan    2000  Male   
+2668                                            Vanuatu    2000  Male   
+2683                 Venezuela (Bolivarian Republic of)    2000  Male   
+2698                                           Viet Nam    2000  Male   
+2713                                              Yemen    2000  Male   
+2728                                             Zambia    2000  Male   
+2743                                           Zimbabwe    2000  Male   
+
+      First Tooltip  
+13             36.6  
+28             23.1  
+43             23.1  
+58             24.2  
+73             26.8  
+88             26.9  
+103            35.4  
+118            16.1  
+133            20.0  
+148            36.1  
+163            23.9  
+178            22.7  
+193            19.7  
+208            25.1  
+223            47.2  
+238            20.1  
+253            29.7  
+268            20.8  
+283            28.8  
+298            23.3  
+313            30.5  
+328            27.6  
+343            29.2  
+358            22.6  
+373            36.9  
+388            24.0  
+403            22.3  
+418            21.9  
+433            27.7  
+448            24.6  
+            ...  
+2308           26.3  
+2323           31.8  
+2338           31.2  
+2353           15.8  
+2368           16.4  
+2383           27.1  
+2398           29.5  
+2413           22.6  
+2428           31.3  
+2443           28.2  
+2458           25.7  
+2473           30.9  
+2488           33.2  
+2503           24.1  
+2518           28.6  
+2533           41.0  
+2548           27.9  
+2563           46.1  
+2578           22.0  
+2593           20.0  
+2608           21.8  
+2623           21.6  
+2638           27.8  
+2653           34.4  
+2668           30.8  
+2683           24.9  
+2698           25.3  
+2713           35.7  
+2728           21.8  
+2743           21.6  
+
+[183 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2000 Female ]----------------------
+
+
+                                               Location  Period    Dim1  \
+14                                          Afghanistan    2000  Female   
+29                                              Albania    2000  Female   
+44                                              Algeria    2000  Female   
+59                                               Angola    2000  Female   
+74                                  Antigua and Barbuda    2000  Female   
+89                                            Argentina    2000  Female   
+104                                             Armenia    2000  Female   
+119                                           Australia    2000  Female   
+134                                             Austria    2000  Female   
+149                                          Azerbaijan    2000  Female   
+164                                             Bahamas    2000  Female   
+179                                             Bahrain    2000  Female   
+194                                          Bangladesh    2000  Female   
+209                                            Barbados    2000  Female   
+224                                             Belarus    2000  Female   
+239                                             Belgium    2000  Female   
+254                                              Belize    2000  Female   
+269                                               Benin    2000  Female   
+284                                              Bhutan    2000  Female   
+299                    Bolivia (Plurinational State of)    2000  Female   
+314                              Bosnia and Herzegovina    2000  Female   
+329                                            Botswana    2000  Female   
+344                                              Brazil    2000  Female   
+359                                   Brunei Darussalam    2000  Female   
+374                                            Bulgaria    2000  Female   
+389                                        Burkina Faso    2000  Female   
+404                                             Burundi    2000  Female   
+419                                          Cabo Verde    2000  Female   
+434                                            Cambodia    2000  Female   
+449                                            Cameroon    2000  Female   
+                                                ...     ...     ...   
+2309                                          Sri Lanka    2000  Female   
+2324                                 Sudan (until 2011)    2000  Female   
+2339                                           Suriname    2000  Female   
+2354                                             Sweden    2000  Female   
+2369                                        Switzerland    2000  Female   
+2384                               Syrian Arab Republic    2000  Female   
+2399                                         Tajikistan    2000  Female   
+2414                                           Thailand    2000  Female   
+2429          The former Yugoslav Republic of Macedonia    2000  Female   
+2444                                        Timor-Leste    2000  Female   
+2459                                               Togo    2000  Female   
+2474                                              Tonga    2000  Female   
+2489                                Trinidad and Tobago    2000  Female   
+2504                                            Tunisia    2000  Female   
+2519                                             Turkey    2000  Female   
+2534                                       Turkmenistan    2000  Female   
+2549                                             Uganda    2000  Female   
+2564                                            Ukraine    2000  Female   
+2579                               United Arab Emirates    2000  Female   
+2594  United Kingdom of Great Britain and Northern I...    2000  Female   
+2609                        United Republic of Tanzania    2000  Female   
+2624                           United States of America    2000  Female   
+2639                                            Uruguay    2000  Female   
+2654                                         Uzbekistan    2000  Female   
+2669                                            Vanuatu    2000  Female   
+2684                 Venezuela (Bolivarian Republic of)    2000  Female   
+2699                                           Viet Nam    2000  Female   
+2714                                              Yemen    2000  Female   
+2729                                             Zambia    2000  Female   
+2744                                           Zimbabwe    2000  Female   
+
+      First Tooltip  
+14             32.1  
+29             14.9  
+44             19.1  
+59             23.8  
+74             20.8  
+89             14.7  
+104            21.0  
+119            10.0  
+134            10.7  
+149            22.9  
+164            16.7  
+179            24.3  
+194            23.1  
+209            17.6  
+224            22.1  
+239            10.6  
+254            22.7  
+269            19.3  
+284            33.1  
+299            22.7  
+314            18.8  
+329            19.6  
+344            20.0  
+359            18.3  
+374            20.2  
+389            21.5  
+404            24.7  
+419            20.3  
+434            23.7  
+449            24.5  
+            ...  
+2309           16.8  
+2324           27.9  
+2339           25.0  
+2354           10.6  
+2369            9.1  
+2384           18.2  
+2399           25.0  
+2414           16.1  
+2429           20.8  
+2444           25.3  
+2459           24.2  
+2474           21.7  
+2489           24.8  
+2504           14.1  
+2519           15.9  
+2534           27.3  
+2549           24.2  
+2564           23.8  
+2579           20.6  
+2594           12.9  
+2609           20.6  
+2624           14.6  
+2639           14.1  
+2654           24.3  
+2669           24.4  
+2684           18.3  
+2699           12.7  
+2714           30.5  
+2729           24.4  
+2744           21.7  
+
+[183 rows x 4 columns]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
