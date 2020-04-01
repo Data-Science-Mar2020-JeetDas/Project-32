@@ -1,0 +1,555 @@
+
+#******************* Question - 02 : 2005 : Probability (%) of dying between age 30 and exact age 70 ********************
+
+
+df2005 = df[df.Period == 2005]
+print("\n\n--------------[ OUTPUT for 2005 ]----------------------\n\n")
+print(df2005[['Location','Period','Dim1','First Tooltip']])
+
+df2005_both = df2005[df2005.Dim1 == 'Both sexes']
+print("\n\n--------------[ OUTPUT for 2005 Both sexes ]----------------------\n\n")
+print(df2005_both[['Location','Period','Dim1','First Tooltip']])
+
+df2005_male = df2005[df2005.Dim1 == 'Male']
+print("\n\n--------------[ OUTPUT for 2005 Male ]----------------------\n\n")
+print(df2005_male[['Location','Period','Dim1','First Tooltip']])
+
+df2005_female = df2005[df2005.Dim1 == 'Female']
+print("\n\n--------------[ OUTPUT for 2005 Female ]----------------------\n\n")
+print(df2005_female[['Location','Period','Dim1','First Tooltip']])
+
+i = np.arange(len(df2005_both['Location']))
+print(i)
+
+i1 = np.arange(len(df2005_male['Location']))
+print(i1)
+
+i2 = np.arange(len(df2005_female['Location']))
+print(i2)
+
+#--------------- plot for 2005 ----------------------
+
+plt.title('Question - 02 : 2005 : Probability (%) of dying between age 30 and exact age 70')
+
+plt.xlabel("Country sl. no --- >")
+plt.ylabel("Probability(%) --- >")
+
+plt.plot(i,df2005_both['First Tooltip'],
+            marker=7,
+            markersize=10,
+            linestyle='dashed',
+            label="[1] For Both sexes")
+
+plt.plot(i1,df2005_male['First Tooltip'],
+            marker='*',
+            markersize=10,
+            linestyle='dashed',
+            label="[2] For male only")
+
+plt.plot(i2,df2005_female['First Tooltip'],
+            marker='+',
+            markersize=10,
+            linestyle='dashed',
+            label="[3] For Female only")
+
+plt.legend()
+plt.show()
+
+
+
+--------------[ OUTPUT for 2005 ]----------------------
+
+
+                                Location  Period        Dim1  First Tooltip
+9                            Afghanistan    2005  Both sexes           34.1
+10                           Afghanistan    2005        Male           36.5
+11                           Afghanistan    2005      Female           31.6
+24                               Albania    2005  Both sexes           18.8
+25                               Albania    2005        Male           22.1
+26                               Albania    2005      Female           15.0
+39                               Algeria    2005  Both sexes           17.6
+40                               Algeria    2005        Male           18.9
+41                               Algeria    2005      Female           16.2
+54                                Angola    2005  Both sexes           21.3
+55                                Angola    2005        Male           21.5
+56                                Angola    2005      Female           21.2
+69                   Antigua and Barbuda    2005  Both sexes           21.6
+70                   Antigua and Barbuda    2005        Male           21.8
+71                   Antigua and Barbuda    2005      Female           21.3
+84                             Argentina    2005  Both sexes           18.9
+85                             Argentina    2005        Male           24.6
+86                             Argentina    2005      Female           13.6
+99                               Armenia    2005  Both sexes           26.5
+100                              Armenia    2005        Male           34.9
+101                              Armenia    2005      Female           19.2
+114                            Australia    2005  Both sexes           11.4
+115                            Australia    2005        Male           13.9
+116                            Australia    2005      Female            8.8
+129                              Austria    2005  Both sexes           12.7
+130                              Austria    2005        Male           16.5
+131                              Austria    2005      Female            9.1
+144                           Azerbaijan    2005  Both sexes           29.0
+145                           Azerbaijan    2005        Male           36.1
+146                           Azerbaijan    2005      Female           22.3
+                                 ...     ...         ...            ...
+2604         United Republic of Tanzania    2005  Both sexes           18.8
+2605         United Republic of Tanzania    2005        Male           19.1
+2606         United Republic of Tanzania    2005      Female           18.5
+2619            United States of America    2005  Both sexes           16.0
+2620            United States of America    2005        Male           19.2
+2621            United States of America    2005      Female           13.0
+2634                             Uruguay    2005  Both sexes           19.1
+2635                             Uruguay    2005        Male           25.2
+2636                             Uruguay    2005      Female           13.6
+2649                          Uzbekistan    2005  Both sexes           29.9
+2650                          Uzbekistan    2005        Male           35.2
+2651                          Uzbekistan    2005      Female           24.6
+2664                             Vanuatu    2005  Both sexes           25.6
+2665                             Vanuatu    2005        Male           28.4
+2666                             Vanuatu    2005      Female           22.3
+2679  Venezuela (Bolivarian Republic of)    2005  Both sexes           19.4
+2680  Venezuela (Bolivarian Republic of)    2005        Male           22.8
+2681  Venezuela (Bolivarian Republic of)    2005      Female           16.2
+2694                            Viet Nam    2005  Both sexes           18.4
+2695                            Viet Nam    2005        Male           25.2
+2696                            Viet Nam    2005      Female           12.4
+2709                               Yemen    2005  Both sexes           32.6
+2710                               Yemen    2005        Male           35.2
+2711                               Yemen    2005      Female           30.1
+2724                              Zambia    2005  Both sexes           21.1
+2725                              Zambia    2005        Male           20.4
+2726                              Zambia    2005      Female           21.7
+2739                            Zimbabwe    2005  Both sexes           22.5
+2740                            Zimbabwe    2005        Male           22.1
+2741                            Zimbabwe    2005      Female           22.9
+
+[549 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2005 Both sexes ]----------------------
+
+
+                                               Location  Period        Dim1  \
+9                                           Afghanistan    2005  Both sexes   
+24                                              Albania    2005  Both sexes   
+39                                              Algeria    2005  Both sexes   
+54                                               Angola    2005  Both sexes   
+69                                  Antigua and Barbuda    2005  Both sexes   
+84                                            Argentina    2005  Both sexes   
+99                                              Armenia    2005  Both sexes   
+114                                           Australia    2005  Both sexes   
+129                                             Austria    2005  Both sexes   
+144                                          Azerbaijan    2005  Both sexes   
+159                                             Bahamas    2005  Both sexes   
+174                                             Bahrain    2005  Both sexes   
+189                                          Bangladesh    2005  Both sexes   
+204                                            Barbados    2005  Both sexes   
+219                                             Belarus    2005  Both sexes   
+234                                             Belgium    2005  Both sexes   
+249                                              Belize    2005  Both sexes   
+264                                               Benin    2005  Both sexes   
+279                                              Bhutan    2005  Both sexes   
+294                    Bolivia (Plurinational State of)    2005  Both sexes   
+309                              Bosnia and Herzegovina    2005  Both sexes   
+324                                            Botswana    2005  Both sexes   
+339                                              Brazil    2005  Both sexes   
+354                                   Brunei Darussalam    2005  Both sexes   
+369                                            Bulgaria    2005  Both sexes   
+384                                        Burkina Faso    2005  Both sexes   
+399                                             Burundi    2005  Both sexes   
+414                                          Cabo Verde    2005  Both sexes   
+429                                            Cambodia    2005  Both sexes   
+444                                            Cameroon    2005  Both sexes   
+                                                ...     ...         ...   
+2304                                          Sri Lanka    2005  Both sexes   
+2319                                 Sudan (until 2011)    2005  Both sexes   
+2334                                           Suriname    2005  Both sexes   
+2349                                             Sweden    2005  Both sexes   
+2364                                        Switzerland    2005  Both sexes   
+2379                               Syrian Arab Republic    2005  Both sexes   
+2394                                         Tajikistan    2005  Both sexes   
+2409                                           Thailand    2005  Both sexes   
+2424          The former Yugoslav Republic of Macedonia    2005  Both sexes   
+2439                                        Timor-Leste    2005  Both sexes   
+2454                                               Togo    2005  Both sexes   
+2469                                              Tonga    2005  Both sexes   
+2484                                Trinidad and Tobago    2005  Both sexes   
+2499                                            Tunisia    2005  Both sexes   
+2514                                             Turkey    2005  Both sexes   
+2529                                       Turkmenistan    2005  Both sexes   
+2544                                             Uganda    2005  Both sexes   
+2559                                            Ukraine    2005  Both sexes   
+2574                               United Arab Emirates    2005  Both sexes   
+2589  United Kingdom of Great Britain and Northern I...    2005  Both sexes   
+2604                        United Republic of Tanzania    2005  Both sexes   
+2619                           United States of America    2005  Both sexes   
+2634                                            Uruguay    2005  Both sexes   
+2649                                         Uzbekistan    2005  Both sexes   
+2664                                            Vanuatu    2005  Both sexes   
+2679                 Venezuela (Bolivarian Republic of)    2005  Both sexes   
+2694                                           Viet Nam    2005  Both sexes   
+2709                                              Yemen    2005  Both sexes   
+2724                                             Zambia    2005  Both sexes   
+2739                                           Zimbabwe    2005  Both sexes   
+
+      First Tooltip  
+9              34.1  
+24             18.8  
+39             17.6  
+54             21.3  
+69             21.6  
+84             18.9  
+99             26.5  
+114            11.4  
+129            12.7  
+144            29.0  
+159            18.5  
+174            18.1  
+189            21.8  
+204            18.8  
+219            34.7  
+234            13.5  
+249            24.3  
+264            20.1  
+279            27.8  
+294            20.8  
+309            22.8  
+324            23.7  
+339            20.8  
+354            17.5  
+369            27.5  
+384            22.5  
+399            22.8  
+414            19.4  
+429            24.0  
+444            22.8  
+            ...  
+2304           17.9  
+2319           28.8  
+2334           25.1  
+2349           11.8  
+2364           10.9  
+2379           22.2  
+2394           27.3  
+2409           17.7  
+2424           24.3  
+2439           24.3  
+2454           25.2  
+2469           25.3  
+2484           26.4  
+2499           18.2  
+2514           20.2  
+2529           35.6  
+2544           24.8  
+2559           35.6  
+2574           18.9  
+2589           14.2  
+2604           18.8  
+2619           16.0  
+2634           19.1  
+2649           29.9  
+2664           25.6  
+2679           19.4  
+2694           18.4  
+2709           32.6  
+2724           21.1  
+2739           22.5  
+
+[183 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2005 Male ]----------------------
+
+
+                                               Location  Period  Dim1  \
+10                                          Afghanistan    2005  Male   
+25                                              Albania    2005  Male   
+40                                              Algeria    2005  Male   
+55                                               Angola    2005  Male   
+70                                  Antigua and Barbuda    2005  Male   
+85                                            Argentina    2005  Male   
+100                                             Armenia    2005  Male   
+115                                           Australia    2005  Male   
+130                                             Austria    2005  Male   
+145                                          Azerbaijan    2005  Male   
+160                                             Bahamas    2005  Male   
+175                                             Bahrain    2005  Male   
+190                                          Bangladesh    2005  Male   
+205                                            Barbados    2005  Male   
+220                                             Belarus    2005  Male   
+235                                             Belgium    2005  Male   
+250                                              Belize    2005  Male   
+265                                               Benin    2005  Male   
+280                                              Bhutan    2005  Male   
+295                    Bolivia (Plurinational State of)    2005  Male   
+310                              Bosnia and Herzegovina    2005  Male   
+325                                            Botswana    2005  Male   
+340                                              Brazil    2005  Male   
+355                                   Brunei Darussalam    2005  Male   
+370                                            Bulgaria    2005  Male   
+385                                        Burkina Faso    2005  Male   
+400                                             Burundi    2005  Male   
+415                                          Cabo Verde    2005  Male   
+430                                            Cambodia    2005  Male   
+445                                            Cameroon    2005  Male   
+                                                ...     ...   ...   
+2305                                          Sri Lanka    2005  Male   
+2320                                 Sudan (until 2011)    2005  Male   
+2335                                           Suriname    2005  Male   
+2350                                             Sweden    2005  Male   
+2365                                        Switzerland    2005  Male   
+2380                               Syrian Arab Republic    2005  Male   
+2395                                         Tajikistan    2005  Male   
+2410                                           Thailand    2005  Male   
+2425          The former Yugoslav Republic of Macedonia    2005  Male   
+2440                                        Timor-Leste    2005  Male   
+2455                                               Togo    2005  Male   
+2470                                              Tonga    2005  Male   
+2485                                Trinidad and Tobago    2005  Male   
+2500                                            Tunisia    2005  Male   
+2515                                             Turkey    2005  Male   
+2530                                       Turkmenistan    2005  Male   
+2545                                             Uganda    2005  Male   
+2560                                            Ukraine    2005  Male   
+2575                               United Arab Emirates    2005  Male   
+2590  United Kingdom of Great Britain and Northern I...    2005  Male   
+2605                        United Republic of Tanzania    2005  Male   
+2620                           United States of America    2005  Male   
+2635                                            Uruguay    2005  Male   
+2650                                         Uzbekistan    2005  Male   
+2665                                            Vanuatu    2005  Male   
+2680                 Venezuela (Bolivarian Republic of)    2005  Male   
+2695                                           Viet Nam    2005  Male   
+2710                                              Yemen    2005  Male   
+2725                                             Zambia    2005  Male   
+2740                                           Zimbabwe    2005  Male   
+
+      First Tooltip  
+10             36.5  
+25             22.1  
+40             18.9  
+55             21.5  
+70             21.8  
+85             24.6  
+100            34.9  
+115            13.9  
+130            16.5  
+145            36.1  
+160            22.4  
+175            18.7  
+190            21.5  
+205            23.3  
+220            49.2  
+235            17.4  
+250            27.6  
+265            20.5  
+280            26.3  
+295            21.2  
+310            28.8  
+325            28.0  
+340            25.0  
+355            19.5  
+370            36.6  
+385            23.5  
+400            21.8  
+415            20.9  
+430            26.9  
+445            23.2  
+            ...  
+2305           23.3  
+2320           30.6  
+2335           29.7  
+2350           13.9  
+2365           14.1  
+2380           26.0  
+2395           29.9  
+2410           20.9  
+2425           29.8  
+2440           25.6  
+2455           25.9  
+2470           31.0  
+2485           30.7  
+2500           23.1  
+2515           26.4  
+2530           42.6  
+2545           26.2  
+2560           48.4  
+2575           19.1  
+2590           17.1  
+2605           19.1  
+2620           19.2  
+2635           25.2  
+2650           35.2  
+2665           28.4  
+2680           22.8  
+2695           25.2  
+2710           35.2  
+2725           20.4  
+2740           22.1  
+
+[183 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2005 Female ]----------------------
+
+
+                                               Location  Period    Dim1  \
+11                                          Afghanistan    2005  Female   
+26                                              Albania    2005  Female   
+41                                              Algeria    2005  Female   
+56                                               Angola    2005  Female   
+71                                  Antigua and Barbuda    2005  Female   
+86                                            Argentina    2005  Female   
+101                                             Armenia    2005  Female   
+116                                           Australia    2005  Female   
+131                                             Austria    2005  Female   
+146                                          Azerbaijan    2005  Female   
+161                                             Bahamas    2005  Female   
+176                                             Bahrain    2005  Female   
+191                                          Bangladesh    2005  Female   
+206                                            Barbados    2005  Female   
+221                                             Belarus    2005  Female   
+236                                             Belgium    2005  Female   
+251                                              Belize    2005  Female   
+266                                               Benin    2005  Female   
+281                                              Bhutan    2005  Female   
+296                    Bolivia (Plurinational State of)    2005  Female   
+311                              Bosnia and Herzegovina    2005  Female   
+326                                            Botswana    2005  Female   
+341                                              Brazil    2005  Female   
+356                                   Brunei Darussalam    2005  Female   
+371                                            Bulgaria    2005  Female   
+386                                        Burkina Faso    2005  Female   
+401                                             Burundi    2005  Female   
+416                                          Cabo Verde    2005  Female   
+431                                            Cambodia    2005  Female   
+446                                            Cameroon    2005  Female   
+                                                ...     ...     ...   
+2306                                          Sri Lanka    2005  Female   
+2321                                 Sudan (until 2011)    2005  Female   
+2336                                           Suriname    2005  Female   
+2351                                             Sweden    2005  Female   
+2366                                        Switzerland    2005  Female   
+2381                               Syrian Arab Republic    2005  Female   
+2396                                         Tajikistan    2005  Female   
+2411                                           Thailand    2005  Female   
+2426          The former Yugoslav Republic of Macedonia    2005  Female   
+2441                                        Timor-Leste    2005  Female   
+2456                                               Togo    2005  Female   
+2471                                              Tonga    2005  Female   
+2486                                Trinidad and Tobago    2005  Female   
+2501                                            Tunisia    2005  Female   
+2516                                             Turkey    2005  Female   
+2531                                       Turkmenistan    2005  Female   
+2546                                             Uganda    2005  Female   
+2561                                            Ukraine    2005  Female   
+2576                               United Arab Emirates    2005  Female   
+2591  United Kingdom of Great Britain and Northern I...    2005  Female   
+2606                        United Republic of Tanzania    2005  Female   
+2621                           United States of America    2005  Female   
+2636                                            Uruguay    2005  Female   
+2651                                         Uzbekistan    2005  Female   
+2666                                            Vanuatu    2005  Female   
+2681                 Venezuela (Bolivarian Republic of)    2005  Female   
+2696                                           Viet Nam    2005  Female   
+2711                                              Yemen    2005  Female   
+2726                                             Zambia    2005  Female   
+2741                                           Zimbabwe    2005  Female   
+
+      First Tooltip  
+11             31.6  
+26             15.0  
+41             16.2  
+56             21.2  
+71             21.3  
+86             13.6  
+101            19.2  
+116             8.8  
+131             9.1  
+146            22.3  
+161            15.1  
+176            17.2  
+191            22.3  
+206            14.9  
+221            21.6  
+236             9.7  
+251            21.1  
+266            19.8  
+281            29.6  
+296            20.4  
+311            17.2  
+326            20.2  
+341            16.9  
+356            15.5  
+371            18.5  
+386            21.8  
+401            23.8  
+416            18.3  
+431            21.7  
+446            22.5  
+            ...  
+2306           12.7  
+2321           27.0  
+2336           20.8  
+2351            9.8  
+2366            7.8  
+2381           18.2  
+2396           24.4  
+2411           14.8  
+2426           18.9  
+2441           23.0  
+2456           24.5  
+2471           19.8  
+2486           22.4  
+2501           13.3  
+2516           14.0  
+2531           28.8  
+2546           23.6  
+2561           24.2  
+2576           18.0  
+2591           11.3  
+2606           18.5  
+2621           13.0  
+2636           13.6  
+2651           24.6  
+2666           22.3  
+2681           16.2  
+2696           12.4  
+2711           30.1  
+2726           21.7  
+2741           22.9  
+
+[183 rows x 4 columns]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
