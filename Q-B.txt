@@ -1,0 +1,23 @@
+
+# Question – B : print column names :
+
+print('------------------------\n Column names as follows :')
+print('------------------------\n')
+count = 0
+for col in df.columns: 
+        print(count,"-->",col)
+        count = count+1
+print("\n-----------------------------\n")
+
+------------------------
+ Column names as follows :
+------------------------
+
+0 --> Location
+1 --> Period
+2 --> Indicator
+3 --> Dim1
+4 --> First Tooltip
+
+-----------------------------
+
