@@ -1,0 +1,556 @@
+
+#******************* Question - 03 : 2010 : Probability (%) of dying between age 30 and exact age 70 ********************
+
+
+df2010 = df[df.Period == 2010]
+print("\n\n--------------[ OUTPUT for 2010 ]----------------------\n\n")
+print(df2010[['Location','Period','Dim1','First Tooltip']])
+
+df2010_both = df2010[df2010.Dim1 == 'Both sexes']
+print("\n\n--------------[ OUTPUT for 2010 Both sexes ]----------------------\n\n")
+print(df2010_both[['Location','Period','Dim1','First Tooltip']])
+
+df2010_male = df2010[df2010.Dim1 == 'Male']
+print("\n\n--------------[ OUTPUT for 2010 Male ]----------------------\n\n")
+print(df2010_male[['Location','Period','Dim1','First Tooltip']])
+
+df2010_female = df2010[df2010.Dim1 == 'Female']
+print("\n\n--------------[ OUTPUT for 2010 Female ]----------------------\n\n")
+print(df2010_female[['Location','Period','Dim1','First Tooltip']])
+
+i = np.arange(len(df2010_both['Location']))
+print(i)
+
+i1 = np.arange(len(df2010_male['Location']))
+print(i1)
+
+i2 = np.arange(len(df2010_female['Location']))
+print(i2)
+
+#--------------- plot for 2010 ----------------------
+
+plt.title('Question - 03 : 2010 : Probability (%) of dying between age 30 and exact age 70')
+
+plt.xlabel("Country sl. no --- >")
+plt.ylabel("Probability(%) --- >")
+
+plt.plot(i,df2010_both['First Tooltip'],
+            marker=7,
+            markersize=10,
+            linestyle='dashed',
+            label="[1] For Both sexes")
+
+plt.plot(i1,df2010_male['First Tooltip'],
+            marker='*',
+            markersize=10,
+            linestyle='dashed',
+            label="[2] For male only")
+
+plt.plot(i2,df2010_female['First Tooltip'],
+            marker='+',
+            markersize=10,
+            linestyle='dashed',
+            label="[3] For Female only")
+
+plt.legend()
+plt.show()
+
+
+
+
+--------------[ OUTPUT for 2010 ]----------------------
+
+
+                                Location  Period        Dim1  First Tooltip
+6                            Afghanistan    2010  Both sexes           31.7
+7                            Afghanistan    2010        Male           34.1
+8                            Afghanistan    2010      Female           29.4
+21                               Albania    2010  Both sexes           18.6
+22                               Albania    2010        Male           22.3
+23                               Albania    2010      Female           14.6
+36                               Algeria    2010  Both sexes           15.4
+37                               Algeria    2010        Male           16.4
+38                               Algeria    2010      Female           14.4
+51                                Angola    2010  Both sexes           18.1
+52                                Angola    2010        Male           18.6
+53                                Angola    2010      Female           17.8
+66                   Antigua and Barbuda    2010  Both sexes           21.6
+67                   Antigua and Barbuda    2010        Male           24.2
+68                   Antigua and Barbuda    2010      Female           19.3
+81                             Argentina    2010  Both sexes           17.8
+82                             Argentina    2010        Male           22.8
+83                             Argentina    2010      Female           13.2
+96                               Armenia    2010  Both sexes           25.9
+97                               Armenia    2010        Male           35.1
+98                               Armenia    2010      Female           17.9
+111                            Australia    2010  Both sexes           10.0
+112                            Australia    2010        Male           12.1
+113                            Australia    2010      Female            7.8
+126                              Austria    2010  Both sexes           12.2
+127                              Austria    2010        Male           15.8
+128                              Austria    2010      Female            8.7
+141                           Azerbaijan    2010  Both sexes           24.8
+142                           Azerbaijan    2010        Male           31.3
+143                           Azerbaijan    2010      Female           18.9
+                                 ...     ...         ...            ...
+2601         United Republic of Tanzania    2010  Both sexes           17.9
+2602         United Republic of Tanzania    2010        Male           18.4
+2603         United Republic of Tanzania    2010      Female           17.6
+2616            United States of America    2010  Both sexes           14.5
+2617            United States of America    2010        Male           17.4
+2618            United States of America    2010      Female           11.7
+2631                             Uruguay    2010  Both sexes           17.7
+2632                             Uruguay    2010        Male           23.4
+2633                             Uruguay    2010      Female           12.4
+2646                          Uzbekistan    2010  Both sexes           26.5
+2647                          Uzbekistan    2010        Male           31.5
+2648                          Uzbekistan    2010      Female           21.7
+2661                             Vanuatu    2010  Both sexes           24.9
+2662                             Vanuatu    2010        Male           28.2
+2663                             Vanuatu    2010      Female           21.1
+2676  Venezuela (Bolivarian Republic of)    2010  Both sexes           18.4
+2677  Venezuela (Bolivarian Republic of)    2010        Male           22.0
+2678  Venezuela (Bolivarian Republic of)    2010      Female           14.9
+2691                            Viet Nam    2010  Both sexes           18.0
+2692                            Viet Nam    2010        Male           24.8
+2693                            Viet Nam    2010      Female           12.1
+2706                               Yemen    2010  Both sexes           31.9
+2707                               Yemen    2010        Male           34.5
+2708                               Yemen    2010      Female           29.4
+2721                              Zambia    2010  Both sexes           19.9
+2722                              Zambia    2010        Male           19.8
+2723                              Zambia    2010      Female           20.0
+2736                            Zimbabwe    2010  Both sexes           21.1
+2737                            Zimbabwe    2010        Male           20.5
+2738                            Zimbabwe    2010      Female           21.5
+
+[549 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2010 Both sexes ]----------------------
+
+
+                                               Location  Period        Dim1  \
+6                                           Afghanistan    2010  Both sexes   
+21                                              Albania    2010  Both sexes   
+36                                              Algeria    2010  Both sexes   
+51                                               Angola    2010  Both sexes   
+66                                  Antigua and Barbuda    2010  Both sexes   
+81                                            Argentina    2010  Both sexes   
+96                                              Armenia    2010  Both sexes   
+111                                           Australia    2010  Both sexes   
+126                                             Austria    2010  Both sexes   
+141                                          Azerbaijan    2010  Both sexes   
+156                                             Bahamas    2010  Both sexes   
+171                                             Bahrain    2010  Both sexes   
+186                                          Bangladesh    2010  Both sexes   
+201                                            Barbados    2010  Both sexes   
+216                                             Belarus    2010  Both sexes   
+231                                             Belgium    2010  Both sexes   
+246                                              Belize    2010  Both sexes   
+261                                               Benin    2010  Both sexes   
+276                                              Bhutan    2010  Both sexes   
+291                    Bolivia (Plurinational State of)    2010  Both sexes   
+306                              Bosnia and Herzegovina    2010  Both sexes   
+321                                            Botswana    2010  Both sexes   
+336                                              Brazil    2010  Both sexes   
+351                                   Brunei Darussalam    2010  Both sexes   
+366                                            Bulgaria    2010  Both sexes   
+381                                        Burkina Faso    2010  Both sexes   
+396                                             Burundi    2010  Both sexes   
+411                                          Cabo Verde    2010  Both sexes   
+426                                            Cambodia    2010  Both sexes   
+441                                            Cameroon    2010  Both sexes   
+                                                ...     ...         ...   
+2301                                          Sri Lanka    2010  Both sexes   
+2316                                 Sudan (until 2011)    2010  Both sexes   
+2331                                           Suriname    2010  Both sexes   
+2346                                             Sweden    2010  Both sexes   
+2361                                        Switzerland    2010  Both sexes   
+2376                               Syrian Arab Republic    2010  Both sexes   
+2391                                         Tajikistan    2010  Both sexes   
+2406                                           Thailand    2010  Both sexes   
+2421          The former Yugoslav Republic of Macedonia    2010  Both sexes   
+2436                                        Timor-Leste    2010  Both sexes   
+2451                                               Togo    2010  Both sexes   
+2466                                              Tonga    2010  Both sexes   
+2481                                Trinidad and Tobago    2010  Both sexes   
+2496                                            Tunisia    2010  Both sexes   
+2511                                             Turkey    2010  Both sexes   
+2526                                       Turkmenistan    2010  Both sexes   
+2541                                             Uganda    2010  Both sexes   
+2556                                            Ukraine    2010  Both sexes   
+2571                               United Arab Emirates    2010  Both sexes   
+2586  United Kingdom of Great Britain and Northern I...    2010  Both sexes   
+2601                        United Republic of Tanzania    2010  Both sexes   
+2616                           United States of America    2010  Both sexes   
+2631                                            Uruguay    2010  Both sexes   
+2646                                         Uzbekistan    2010  Both sexes   
+2661                                            Vanuatu    2010  Both sexes   
+2676                 Venezuela (Bolivarian Republic of)    2010  Both sexes   
+2691                                           Viet Nam    2010  Both sexes   
+2706                                              Yemen    2010  Both sexes   
+2721                                             Zambia    2010  Both sexes   
+2736                                           Zimbabwe    2010  Both sexes   
+
+      First Tooltip  
+6              31.7  
+21             18.6  
+36             15.4  
+51             18.1  
+66             21.6  
+81             17.8  
+96             25.9  
+111            10.0  
+126            12.2  
+141            24.8  
+156            16.9  
+171            13.8  
+186            22.2  
+201            18.0  
+216            31.0  
+231            12.8  
+246            23.2  
+261            19.8  
+276            25.1  
+291            18.8  
+306            20.9  
+321            22.2  
+336            19.0  
+351            17.4  
+366            25.1  
+381            22.4  
+396            22.8  
+411            18.3  
+426            22.2  
+441            21.8  
+            ...  
+2301           17.6  
+2316           26.8  
+2331           23.0  
+2346           10.4  
+2361            9.7  
+2376           22.1  
+2391           26.1  
+2406           15.8  
+2421           23.0  
+2436           23.2  
+2451           24.4  
+2466           24.7  
+2481           23.6  
+2496           17.5  
+2511           18.2  
+2526           31.0  
+2541           22.7  
+2556           29.3  
+2571           18.1  
+2586           12.2  
+2601           17.9  
+2616           14.5  
+2631           17.7  
+2646           26.5  
+2661           24.9  
+2676           18.4  
+2691           18.0  
+2706           31.9  
+2721           19.9  
+2736           21.1  
+
+[183 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2010 Male ]----------------------
+
+
+                                               Location  Period  Dim1  \
+7                                           Afghanistan    2010  Male   
+22                                              Albania    2010  Male   
+37                                              Algeria    2010  Male   
+52                                               Angola    2010  Male   
+67                                  Antigua and Barbuda    2010  Male   
+82                                            Argentina    2010  Male   
+97                                              Armenia    2010  Male   
+112                                           Australia    2010  Male   
+127                                             Austria    2010  Male   
+142                                          Azerbaijan    2010  Male   
+157                                             Bahamas    2010  Male   
+172                                             Bahrain    2010  Male   
+187                                          Bangladesh    2010  Male   
+202                                            Barbados    2010  Male   
+217                                             Belarus    2010  Male   
+232                                             Belgium    2010  Male   
+247                                              Belize    2010  Male   
+262                                               Benin    2010  Male   
+277                                              Bhutan    2010  Male   
+292                    Bolivia (Plurinational State of)    2010  Male   
+307                              Bosnia and Herzegovina    2010  Male   
+322                                            Botswana    2010  Male   
+337                                              Brazil    2010  Male   
+352                                   Brunei Darussalam    2010  Male   
+367                                            Bulgaria    2010  Male   
+382                                        Burkina Faso    2010  Male   
+397                                             Burundi    2010  Male   
+412                                          Cabo Verde    2010  Male   
+427                                            Cambodia    2010  Male   
+442                                            Cameroon    2010  Male   
+                                                ...     ...   ...   
+2302                                          Sri Lanka    2010  Male   
+2317                                 Sudan (until 2011)    2010  Male   
+2332                                           Suriname    2010  Male   
+2347                                             Sweden    2010  Male   
+2362                                        Switzerland    2010  Male   
+2377                               Syrian Arab Republic    2010  Male   
+2392                                         Tajikistan    2010  Male   
+2407                                           Thailand    2010  Male   
+2422          The former Yugoslav Republic of Macedonia    2010  Male   
+2437                                        Timor-Leste    2010  Male   
+2452                                               Togo    2010  Male   
+2467                                              Tonga    2010  Male   
+2482                                Trinidad and Tobago    2010  Male   
+2497                                            Tunisia    2010  Male   
+2512                                             Turkey    2010  Male   
+2527                                       Turkmenistan    2010  Male   
+2542                                             Uganda    2010  Male   
+2557                                            Ukraine    2010  Male   
+2572                               United Arab Emirates    2010  Male   
+2587  United Kingdom of Great Britain and Northern I...    2010  Male   
+2602                        United Republic of Tanzania    2010  Male   
+2617                           United States of America    2010  Male   
+2632                                            Uruguay    2010  Male   
+2647                                         Uzbekistan    2010  Male   
+2662                                            Vanuatu    2010  Male   
+2677                 Venezuela (Bolivarian Republic of)    2010  Male   
+2692                                           Viet Nam    2010  Male   
+2707                                              Yemen    2010  Male   
+2722                                             Zambia    2010  Male   
+2737                                           Zimbabwe    2010  Male   
+
+      First Tooltip  
+7              34.1  
+22             22.3  
+37             16.4  
+52             18.6  
+67             24.2  
+82             22.8  
+97             35.1  
+112            12.1  
+127            15.8  
+142            31.3  
+157            20.3  
+172            14.2  
+187            22.4  
+202            22.0  
+217            45.2  
+232            16.2  
+247            26.0  
+262            20.1  
+277            23.7  
+292            19.1  
+307            26.6  
+322            25.6  
+337            23.0  
+352            19.0  
+367            33.7  
+382            23.1  
+397            22.5  
+412            20.0  
+427            24.9  
+442            22.6  
+            ...  
+2302           22.6  
+2317           28.5  
+2332           27.5  
+2347           12.1  
+2362           12.1  
+2377           25.3  
+2392           28.8  
+2407           19.3  
+2422           28.6  
+2437           24.9  
+2452           25.1  
+2467           30.8  
+2482           27.2  
+2497           22.1  
+2512           24.3  
+2527           37.5  
+2542           24.6  
+2557           40.4  
+2572           18.4  
+2587           14.6  
+2602           18.4  
+2617           17.4  
+2632           23.4  
+2647           31.5  
+2662           28.2  
+2677           22.0  
+2692           24.8  
+2707           34.5  
+2722           19.8  
+2737           20.5  
+
+[183 rows x 4 columns]
+
+
+--------------[ OUTPUT for 2010 Female ]----------------------
+
+
+                                               Location  Period    Dim1  \
+8                                           Afghanistan    2010  Female   
+23                                              Albania    2010  Female   
+38                                              Algeria    2010  Female   
+53                                               Angola    2010  Female   
+68                                  Antigua and Barbuda    2010  Female   
+83                                            Argentina    2010  Female   
+98                                              Armenia    2010  Female   
+113                                           Australia    2010  Female   
+128                                             Austria    2010  Female   
+143                                          Azerbaijan    2010  Female   
+158                                             Bahamas    2010  Female   
+173                                             Bahrain    2010  Female   
+188                                          Bangladesh    2010  Female   
+203                                            Barbados    2010  Female   
+218                                             Belarus    2010  Female   
+233                                             Belgium    2010  Female   
+248                                              Belize    2010  Female   
+263                                               Benin    2010  Female   
+278                                              Bhutan    2010  Female   
+293                    Bolivia (Plurinational State of)    2010  Female   
+308                              Bosnia and Herzegovina    2010  Female   
+323                                            Botswana    2010  Female   
+338                                              Brazil    2010  Female   
+353                                   Brunei Darussalam    2010  Female   
+368                                            Bulgaria    2010  Female   
+383                                        Burkina Faso    2010  Female   
+398                                             Burundi    2010  Female   
+413                                          Cabo Verde    2010  Female   
+428                                            Cambodia    2010  Female   
+443                                            Cameroon    2010  Female   
+                                                ...     ...     ...   
+2303                                          Sri Lanka    2010  Female   
+2318                                 Sudan (until 2011)    2010  Female   
+2333                                           Suriname    2010  Female   
+2348                                             Sweden    2010  Female   
+2363                                        Switzerland    2010  Female   
+2378                               Syrian Arab Republic    2010  Female   
+2393                                         Tajikistan    2010  Female   
+2408                                           Thailand    2010  Female   
+2423          The former Yugoslav Republic of Macedonia    2010  Female   
+2438                                        Timor-Leste    2010  Female   
+2453                                               Togo    2010  Female   
+2468                                              Tonga    2010  Female   
+2483                                Trinidad and Tobago    2010  Female   
+2498                                            Tunisia    2010  Female   
+2513                                             Turkey    2010  Female   
+2528                                       Turkmenistan    2010  Female   
+2543                                             Uganda    2010  Female   
+2558                                            Ukraine    2010  Female   
+2573                               United Arab Emirates    2010  Female   
+2588  United Kingdom of Great Britain and Northern I...    2010  Female   
+2603                        United Republic of Tanzania    2010  Female   
+2618                           United States of America    2010  Female   
+2633                                            Uruguay    2010  Female   
+2648                                         Uzbekistan    2010  Female   
+2663                                            Vanuatu    2010  Female   
+2678                 Venezuela (Bolivarian Republic of)    2010  Female   
+2693                                           Viet Nam    2010  Female   
+2708                                              Yemen    2010  Female   
+2723                                             Zambia    2010  Female   
+2738                                           Zimbabwe    2010  Female   
+
+      First Tooltip  
+8              29.4  
+23             14.6  
+38             14.4  
+53             17.8  
+68             19.3  
+83             13.2  
+98             17.9  
+113             7.8  
+128             8.7  
+143            18.9  
+158            13.8  
+173            13.7  
+188            21.9  
+203            14.6  
+218            18.4  
+233             9.6  
+248            20.0  
+263            19.5  
+278            26.8  
+293            18.5  
+308            15.7  
+323            19.5  
+338            15.4  
+353            15.8  
+368            16.8  
+383            21.8  
+398            23.1  
+413            17.2  
+428            20.3  
+443            21.1  
+            ...  
+2303           12.9  
+2318           25.1  
+2333           18.8  
+2348            8.7  
+2363            7.3  
+2378           18.8  
+2393           23.0  
+2408           12.6  
+2423           17.5  
+2438           21.4  
+2453           23.7  
+2468           18.7  
+2483           20.1  
+2498           12.9  
+2513           12.5  
+2528           24.9  
+2543           21.2  
+2558           20.0  
+2573           17.0  
+2588            9.8  
+2603           17.6  
+2618           11.7  
+2633           12.4  
+2648           21.7  
+2663           21.1  
+2678           14.9  
+2693           12.1  
+2708           29.4  
+2723           20.0  
+2738           21.5  
+
+[183 rows x 4 columns]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
+[  0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
+  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
+  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71
+  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89
+  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107
+ 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125
+ 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
+ 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+ 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+ 180 181 182]
